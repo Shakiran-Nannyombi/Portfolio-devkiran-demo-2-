@@ -1,0 +1,264 @@
+/* Container for the entire section */
+#skills {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  width: 100%;
+  max-width: 1200px; /* Adjust as needed */
+  margin-top: 100px; /* Center the section */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Container for the skills introduction */
+.skills-intro {
+  width: 100%;
+  max-width: 1200px; /* Adjust as needed */
+  margin: 0 auto; /* Center the container */
+  padding: 20px;
+  text-align: left; /* Align text to the left */
+}
+
+/* Heading styles */
+h2.head {
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: auto;
+  color: var(--header-background); /* Use your theme's header background color */
+  text-align: left; /* Ensure heading is left-aligned */
+  margin-bottom: 20px; 
+}
+
+/* Paragraph styles */
+p.intro-text {
+  margin: 0;
+  text-align: left; /* Align paragraph text to the left */
+  font-size: 18px; /* Adjust font size as needed */
+  line-height: 1.6; /* Improve readability */
+  color: var(--text-color); /* Use your theme's text color */
+  max-width: 1200px; /* Adjust as needed */
+}
+
+/* Flexbox container for skills */
+#skills .content {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  gap: 40px; /* Space between avatar and skills */
+  width: 100%;
+}
+
+/* Skills container wrapper for horizontal scrolling */
+.skills-container {
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+.skills-container::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+/* Skills container */
+.skills {
+  display: inline-flex; /* Make the container inline-flex for horizontal layout */
+  gap: 10px; /* Space between buttons */
+  box-sizing: border-box;
+  padding: 60px 15px;
+  white-space: nowrap; /* Prevent buttons from wrapping */
+}
+
+/* Skill buttons */
+.skill {
+  padding: 30px;
+  text-align: left;
+  /* background-color: var(--button-background); Use your theme's button background color */
+  background-size: cover; /* Ensure the background image covers the button */
+  background-position: center; /* Center the background image */
+  position: relative; /* For overlay positioning */
+  overflow: hidden; /* Ensure the overlay doesn't overflow */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: auto; /* Allow buttons to shrink/grow based on content */
+  min-width: 150px; /* Minimum width for buttons */
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  color: var(--text-color);
+}
+
+.skill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--button-background-rgb), 0.3); /* Semi-transparent overlay using theme's button background color */
+  z-index: 1;
+}
+
+.skill span {
+  position: relative;
+  z-index: 2; /* Ensure text is above the overlay */
+}
+
+/* Hover effect */
+.skill:hover {
+  background-color: rgba(var(--button-color), 0.8); /* Use your theme's button hover background color */
+  color: var(--button-text-color);
+  transform: scale(1.20);
+}
+
+h3 {
+  font-size: 24px;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.tools{
+  display: flex;
+  align-items: flex-start;
+  gap: 100px;
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+
+.tool-list {
+  display: inline-flex;
+  flex: 1;
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  gap: 20px; 
+  list-style: none; 
+  padding: 0;
+  white-space: nowrap;
+}
+
+.tool-list::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.tool {
+  flex:1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px; /* Space between buttons */
+  background-color: rgba(var(--button-background), 0.5rem); /* Semi-transparent background */
+  border: none;
+  background-color: rgba(var(--button-background-rgb), 0.5); /* Semi-transparent background */
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.tool::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--button-background-rgb), 0.3); /* Semi-transparent overlay using theme's button background color */
+  z-index: 1;
+}
+
+.tool img {
+  width: 40px; /* Adjust image size */
+  height: auto; /* Maintain aspect ratio */
+}
+
+
+/* Keyframes for Vertical Scrolling */
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100%{
+     transform: translateY(-50%);
+  }   
+}
+
+.git img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-arrow {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #skills {
+    padding: 1rem;
+    height: auto; /* Remove fixed height */
+    margin-top: 50px; /* Remove margin for better spacing on smaller screens */
+  }
+
+  .skills {
+    padding: 30px 10px; /* Reduce padding on smaller screens */
+  }
+
+  .skill {
+    min-width: 120px; /* Smaller buttons on smaller screens */
+    font-size: 14px; /* Smaller font size */
+  } 
+
+  h2.head {
+    font-size: 20px; /* Smaller font size for smaller screens */
+    margin: auto;
+  }
+
+  p.intro-text {
+    font-size: 15px; /* Smaller font size for smaller screens */
+    margin-top: 20px; /* Add space between heading and paragraph */
+  }
+  
+  .content {
+    flex-direction: column; /* Stack elements vertically on smaller screens */
+  }
+  
+  .tools {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .tool-list {
+    max-width: 100%;
+    height: 150px;
+    margin-bottom: 50px;
+  }
+
+  .git img {
+    max-width: 100%;
+  }
+  
+  .scroll-arrow {
+    display: flex;
+  }
+
+  .scroll-arrow span {
+    animation: scroll 2s linear infinite;
+  }
+}
+

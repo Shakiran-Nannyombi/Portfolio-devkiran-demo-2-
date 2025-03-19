@@ -1,0 +1,121 @@
+/* Navbar styles */
+/* Navbar styles */
+.nav-area {
+  background-color: transparent; /* Default background */
+  padding:  1.0rem 2.0rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  max-width: 12000px;
+  box-sizing: border-box;
+}
+
+/* Navbar hidden when scrolling down */
+.nav-area.hidden {
+  transform: translateY(-100%); /* Move navbar off the top of the screen */
+}
+
+/* Navbar background when scrolling */
+.nav-area.scroll {
+  background-color: var(--header-background); /* Add background color while scrolling */
+}
+
+.logo {
+  font-size: large;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: large;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color); 
+  transition: color 0.3s;
+}
+
+.nav-links a.active {
+  color: var(--nav-link-active-color); 
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: var(--nav-link-active-color); 
+}
+
+button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  gap: 0.25rem;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-color);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+
+  .nav-area {
+    padding: 1rem;
+    margin: 0;
+    margin-bottom: 100px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 1rem;
+    background-color: var(--header-background);
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensure the menu takes full width */
+    max-width: 300px; /* Limit the maximum width */
+    box-sizing: border-box;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: flex;
+  }
+
+  .menu-icon.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-icon.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-icon.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
