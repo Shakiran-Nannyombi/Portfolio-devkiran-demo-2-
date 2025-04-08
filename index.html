@@ -8,202 +8,397 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Hentaigana:wght@200..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Slabo+27px&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/themes.css">
-  <link rel="stylesheet" href="/css/nav.css">
-  <link rel="stylesheet" href="/css/about.css">
-  <link rel="stylesheet" href="/css/skills.css">
-  <link rel="stylesheet" href="/css/projects.css">
-  <link rel="stylesheet" href="/css/work.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#de0257',
+            secondary: '#fd2175',
+            dark: {
+              primary: '#fd5394',
+              secondary: '#e496b4'
+            }
+          },
+          fontFamily: {
+            sans: ['Roboto', 'sans-serif'],
+            serif: ['Noto Serif Hentaigana', 'serif'],
+            slab: ['Slabo 27px', 'serif']
+          }
+        }
+      }
+    }
+  </script>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="nav-area">
+  <!-- Navbar --> 
+  <nav class="fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300 ease-in-out flex justify-between items-center px-8 py-4 max-w-[12000px] mx-auto">
+    <!-- logo -->
+    <a href="#" class="hidden md:block text-xl font-bold text-gray-800 dark:text-white hover:text-primary dark:hover:text-dark-primary transition-colors duration-300">Dev_Kiran</a>
     <!-- links to sections -->
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#work">Experience</a></li> 
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <!-- theme toggle and menu icon to show for mobile phones -->
-    <label class="theme-switch">
-      <input type="checkbox" id="theme-toggle">
-      <span class="slider"></span>
-      <span class="labels">
-        <span class="light-label">DARK MODE</span>
-        <span class="dark-label">NIGHT MODE</span>
-      </span>
-    </label>
-    <div class="menu-icon" id="menu-icon">
-      <span></span>
-      <span></span>
-      <span></span>
+    <ul class="hidden md:flex gap-6 text-lg">
+      <li><a href="#about" class="text-gray-800 dark:text-white hover:text-primary dark:hover:text-dark-primary transition-colors duration-300">About</a></li>
+      <li><a href="#skills" class="text-gray-800 dark:text-white hover:text-primary dark:hover:text-dark-primary transition-colors duration-300">Skills</a></li>
+      <li><a href="#projects" class="text-gray-800 dark:text-white hover:text-primary dark:hover:text-dark-primary transition-colors duration-300">Projects</a></li>
+      <li><a href="#work" class="text-gray-800 dark:text-white hover:text-primary dark:hover:text-dark-primary transition-colors duration-300">Experience</a></li> 
+      <li><a href="#services" class="text-gray-800 dark:text-white hover:text-primary dark:hover:text-dark-primary transition-colors duration-300">Services</a></li>
+      <li><a href="#contact" class="text-gray-800 dark:text-white hover:text-primary dark:hover:text-dark-primary transition-colors duration-300">Contact</a></li>
+      <li><a href="blog.html" class="text-gray-800 dark:text-white hover:text-primary dark:hover:text-dark-primary transition-colors duration-300">Blog</a></li>
+      <li class="relative">
+        <button id="social-dropdown-btn" class="text-gray-800 dark:text-white hover:text-primary dark:hover:text-dark-primary transition-colors duration-300 flex items-center gap-1">
+          Social Media
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="social-dropdown" class="absolute hidden w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 mt-2">
+          <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Twitter</a>
+          <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">LinkedIn</a>
+          <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">GitHub</a>
+          <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Instagram</a>
+        </div>
+      </li>
+  </ul>
+    <!-- theme toggle and menu icon -->
+    <div class="flex items-center gap-8">
+      <label class="relative inline-flex items-center cursor-pointer">
+        <input type="checkbox" id="theme-toggle" class="sr-only peer">
+        <div class="w-11 h-6 bg-gray-800 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 dark:peer-focus:ring-dark-primary/20 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary dark:peer-checked:bg-dark-primary">
+          <span class="absolute left-1 top-1 text-xs font-medium text-gray-500 dark:text-gray-400">🌞</span>
+          <span class="absolute right-1 top-1 text-xs font-medium text-gray-500 dark:text-gray-400">🌙</span>
+        </div>
+      </label>
+      <!-- Social Media Dropdown for Mobile -->
+      <div class="relative md:hidden">
+        <button id="mobile-social-btn" class="text-gray-800 dark:text-white hover:text-primary dark:hover:text-dark-primary transition-colors duration-300 flex items-center gap-1">
+          Social Media
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="mobile-social-dropdown" class="absolute hidden w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2 mt-3">
+          <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Twitter</a>
+          <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">LinkedIn</a>
+          <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">GitHub</a>
+          <a href="#" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Instagram</a>
+        </div>
+      </div>
+      <div class="relative mx-8">
+        <button class="md:hidden flex flex-col gap-1 cursor-pointer" id="menu-icon">
+          <span class="w-6 h-0.5 bg-gray-800 dark:bg-white transition-all duration-300"></span>
+          <span class="w-6 h-0.5 bg-gray-800 dark:bg-white transition-all duration-300"></span>
+          <span class="w-6 h-0.5 bg-gray-800 dark:bg-white transition-all duration-300"></span>
+        </button>
+        <div id="mobile-menu" class="hidden md:hidden absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-2">
+          <a href="#about" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">About</a>
+          <a href="#skills" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Skills</a>
+          <a href="#projects" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Projects</a>
+          <a href="#work" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Experience</a>
+          <a href="#services" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Services</a>
+          <a href="#contact" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Contact</a>
+          <a href="blog.html" class="block px-4 py-2 text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">Blog</a>
+        </div>
+      </div>
     </div>
   </nav>
 
   <!-- About Section -->
-  <section id="about">
-    <div class="content">
-     
-      <div class="info">
-        <h1 data-aos="fade-right">Hi, I'm Nannyombi Shakiran</h1>
-        <h2 data-aos="fade-right">SOFTWARE ENGINEER & DATA SCIENTIST</h2>
-        <p class="fade-in delay">
-          Welcome to my portfolio! I'm a passionate Software Engineer specializing in <b>Web Development</b> and <b>Data Science</b>. <br>
-          I thrive on building user-friendly, visually appealing web applications and diving into the world of data to uncover insights. <br>
-          Currently, I'm honing my skills in <b>JavaScript</b> and <b>Python</b> to push the boundaries of what I can create. <br>
-          <i>Let's build something amazing together!</i>
-        </p>
-        <div class="buttons">
-          <a href="#projects"><button class="btn">View My Work</button></a>
-          <a href="#contact"><button class="outline">Let's Connect</button></a>
+  <section id="about" class="min-h-screen flex items-center justify-center px-10 py-16 bg-white dark:bg-gray-900">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-15">
+      <div class="flex-1 flex flex-col items-center" data-aos="fade-up-left">
+        <h2 class="text-4xl md:text-5xl font-bold mb-8 bg-gradient-to-l from-[#691b39] to-primary dark:from-dark-secondary dark:to-dark-primary bg-clip-text text-transparent text-center">
+         Hi, I'm Shakiran Nannyombi
+        </h2>
+        <div class="relative w-80 h-80">
+          <img src="images/about2.png" alt="Light Avatar" class="absolute inset-0 w-full h-full object-contain dark:hidden">
+          <img src="images/about.png" alt="Dark Avatar" class="absolute inset-0 w-full h-full object-contain hidden dark:block">
         </div>
-      </div> 
-      <div class="avatar" data-aos="fade-up-left">
-        <img src="images/avatar1.png" alt="Light Avatar" class="light-label">
-        <img src="images/final_illustration.jpg" alt="Dark Avatar" class="dark-label" >
+      </div>
+      <div class="flex-1 text-left backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 p-6 rounded-lg shadow-md" data-aos="fade-right">
+        <p class="text-xl md:text-2xl font-semibold mb-6 text-gray-700 dark:text-gray-50 text-center">
+          Welcome to my portfolio! 
+        </p>
+        <p class="text-lg text-gray-700 dark:text-gray-300 mb-8 italic text-center">
+          I'm a Software Engineer in the making, passionate about <span class="font-bold">Data Science, Web Development, and Design</span>. <br>
+          I love exploring new technologies, building user-friendly applications, and sharing what I learn. <br>
+          Currently, I'm honing my skills in <span class="font-bold">JavaScript and Python</span>, constantly pushing my boundaries. <br>
+          Let's build something amazing together!
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center">
+          <a href="#projects">
+            <button class="px-6 py-3 bg-gradient-to-l from-[#691b39] to-primary dark:from-dark-secondary dark:to-dark-primary text-white dark:text-black hover:bg-gradient-to-l hover:from-[#8a2349] hover:to-secondary hover:bg-primary dark:hover:bg-dark-primary rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center gap-2 border-2 border-primary dark:border-dark-primary hover:border-primary dark:hover:border-dark-primary hover:text-black dark:hover:text-white">
+              <span> <b>Download CV</b></span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+            </button>
+          </a>
+          <a href="#contact">
+            <button class="px-6 py-3 bg-gradient-to-l from-[#691b39] to-primary dark:from-dark-secondary dark:to-dark-primary bg-clip-text text-transparent hover:from-primary hover:bg-primary dark:hover:from-dark-primary dark:hover:bg-dark-secondary rounded-lg transition-all duration-300 transform hover:scale-105 border-2 border-primary dark:border-dark-primary hover:border-secondary/100 dark:hover:border-dark-secondary/100">
+              Let's Connect
+            </button>
+          </a>
+        </div>
       </div>
     </div>
   </section>
   
- <!-- Skills Section -->
-<section id="skills">
-  <div class="skills-intro">
-    <h2 class="head">🚀 My Skills & Expertise</h2>
-    <p class="intro-text" data-aos="fade-up">
-      Whether it is bringing ideas to life through code or designing intuitive user experiences, 
-      I am always ready to tackle new challenges and deliver impactful solutions. 
-      Here is a glimpse of my skills. Some of these skills are still in improvement.
-    </p>
-  </div>
-  <div class="content">
-    <div class="skills-container">
-      <div class="skills">
-        <div class="skill-item">
-          <button class="skill" aria-label="Web Development" style="background-image: url('/images/webDev.jpg');"></button>
-          <span class="skill-label">💻 Web Development</span>
+  <!-- Skills Section -->
+  <section id="skills" class="min-h-screen py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-white">My Skills & Expertise</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto" data-aos="fade-up">
+          Whether it is bringing ideas to life through code or designing intuitive user experiences, 
+          I am always ready to tackle new challenges and deliver impactful solutions. 
+          Here is a glimpse of my skills. Some of these skills are still in improvement.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="aspect-w-16 aspect-h-9 bg-cover bg-center" style="background-image: url('images/webDev.jpg')"></div>
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span class="text-white text-xl font-semibold">💻 Web Development</span>
+          </div>
         </div>
-        <div class="skill-item">
-          <button class="skill" aria-label="UI/UX Design" style="background-image: url('/images/uiux.jpeg');"></button>
-          <span class="skill-label">🎨 UI/UX Design</span>
+        <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="aspect-w-16 aspect-h-9 bg-cover bg-center" style="background-image: url('images/uiux.jpeg')"></div>
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span class="text-white text-xl font-semibold">🎨 UI/UX Design</span>
+          </div>
         </div>
-        <div class="skill-item">
-          <button class="skill" aria-label="Mobile Development" style="background-image: url('/images/mobile.jpeg');"></button>
-          <span class="skill-label">📱 Mobile Development</span>
+        <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="aspect-w-16 aspect-h-9 bg-cover bg-center" style="background-image: url('images/mobile.jpeg')"></div>
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span class="text-white text-xl font-semibold">📱 Mobile Development</span>
+          </div>
         </div>
-        <div class="skill-item">
-          <button class="skill" aria-label="Data Science" style="background-image: url('/images/data.jpeg');"></button>
-          <span class="skill-label">📊 Data Science</span>
+        <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="aspect-w-16 aspect-h-9 bg-cover bg-center" style="background-image: url('images/data.jpeg')"></div>
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span class="text-white text-xl font-semibold">📊 Data Science</span>
+          </div>
         </div>
-        <div class="skill-item">
-          <button class="skill" aria-label="Machine Learning" style="background-image: url('/images/machine.jpeg');"></button>
-          <span class="skill-label">🤖 Machine Learning</span>
+        <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="aspect-w-16 aspect-h-9 bg-cover bg-center" style="background-image: url('images/machine.jpeg')"></div>
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span class="text-white text-xl font-semibold">🤖 Machine Learning</span>
+          </div>
         </div>
-        <div class="skill-item">
-          <button class="skill" aria-label="Technical Writing" style="background-image: url('/images/tech.jpeg');"></button>
-          <span class="skill-label">📝 Technical Writing</span>
+        <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+          <div class="aspect-w-16 aspect-h-9 bg-cover bg-center" style="background-image: url('images/tech.jpeg')"></div>
+          <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span class="text-white text-xl font-semibold">📝 Technical Writing</span>
+          </div>
         </div>
       </div>
-      <div class="scroll-arrow">
-        <span>⬅️ Scroll ➡️</span>
+
+      <div class="mt-12">
+        <h3 class="text-2xl font-bold text-center mb-8 text-gray-800 dark:text-white">Tools & Languages</h3>
+        <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+          <ul class="flex flex-wrap gap-4 justify-center">
+            <li class="flex items-center gap-2 bg-white dark:bg-gray-700 px-4 py-2 rounded-lg shadow-md">
+              <img src="images/github.png" alt="Git" class="w-6 h-6">
+              <span class="text-gray-800 dark:text-white">GitHub</span>
+            </li>
+            <li class="flex items-center gap-2 bg-white dark:bg-gray-700 px-4 py-2 rounded-lg shadow-md">
+              <img src="images/figma.png" alt="Figma" class="w-6 h-6">
+              <span class="text-gray-800 dark:text-white">Figma</span>
+            </li>
+            <li class="flex items-center gap-2 bg-white dark:bg-gray-700 px-4 py-2 rounded-lg shadow-md">
+              <img src="images/flutter.png" alt="FlutterFlow" class="w-6 h-6">
+              <span class="text-gray-800 dark:text-white">FlutterFlow</span>
+            </li>
+            <li class="flex items-center gap-2 bg-white dark:bg-gray-700 px-4 py-2 rounded-lg shadow-md">
+              <img src="images/zoho.png" alt="ZohoCreator" class="w-6 h-6">
+              <span class="text-gray-800 dark:text-white">Zoho Creator</span>
+            </li>
+          </ul>
+          <div class="w-full md:w-auto">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Shakiran-Nannyombi&layout=compact&theme=radical" alt="Top Languages" class="rounded-lg shadow-lg">
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <h3>Tools & Languages</h3>
-  <div class="tools">
-    <ul class="tool-list">
-      <ul style="list-style-type: none; padding: 0;">
-        <li class="tool">
-          <img src="/images/github.png" alt="Git" style="margin-right: 10px;">
-          GitHub
-        </li>
-        <li class="tool"></li>
-          <img src="/images/figma.png" alt="Figma" style="margin-right: 10px; width: 40px; height: 40px;">
-          Figma
-        </li>
-      </ul>
-      <ul style="list-style-type: none; padding: 0;">
-        <li class="tool">
-          <img src="/images/flutter.png" alt="FlutterFlow" style="margin-right: 10px;">
-          FlutterFlow
-        </li>
-        <li class="tool"></li>
-          <img src="/images/zoho.png" alt="ZohoCreator" style="margin-right: 10px; width: 40px; height: 40px; margin-top: 10px;">
-          Zoho Creator
-        </li>
-      </ul>
-    </ul>
-    <div class="git">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Shakiran-Nannyombi&layout=compact&theme=radical" alt="Top Languages">
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Projects section -->
-<section id="projects">
-  <h2 class="head">Projects</h2>
-  <p class="intro-text">
-    Here are some of my projects that I have worked on. 
-    There a combination of combination of collaborative work and individual work.
-  </p>
-   <div class="scroll-arrow">
-    <span >⬅️ Scroll ➡️</span>
-  </div>
-  <div class="project-scroll">
-    <div class="project-card">
-      <img src="/images/projectDefault.jpeg" alt="Project 1">
-      <h3>Project 1</h3>
-      <p>This is a default project description. It showcases the work done, the technologies used, 
-        and the impact it had. Stay tuned for more details!</p>
-        <a href="#">view project</a>
-    </div>
-    <div class="project-card">
-      <img src="/images/projectDefault.jpeg" alt="Project 2">
-      <h3>Project 2</h3>
-      <p>This is a default project description. It showcases the work done, the technologies used, 
-        and the impact it had. Stay tuned for more details!</p>
-          <a href="#">view project</a>
-    </div>
-    <div class="project-card">
-      <img src="/images/projectDefault.jpeg" alt="Project 3">
-      <h3>Project 3</h3>
-      <p>This is a default project description. It showcases the work done, the technologies used, 
-        and the impact it had. Stay tuned for more details!</p>
-        <a href="#">view project</a>
-    </div>
-  </div>
-</section>
+  <!-- Projects Section -->
+  <section id="projects" class="min-h-screen py-16 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-white">Projects</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Here are some of my projects that I have worked on. 
+          There a combination of combination of collaborative work and individual work.
+        </p>
+      </div>
 
-  <section id="work">
-    <h2>Experience</h2>
-    <p>Here is my work experience...</p>
-    <div class="job">
-      <h3>Job Title</h3>
-      <p>Job description...</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <img src="images/projectDefault.jpeg" alt="Project 1" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-white">Project 1</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              This is a default project description. It showcases the work done, the technologies used, 
+              and the impact it had. Stay tuned for more details!
+            </p>
+            <a href="#" class="inline-block text-primary hover:text-primary/80 transition-colors duration-300">
+              View Project →
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <img src="images/projectDefault.jpeg" alt="Project 2" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-white">Project 2</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              This is a default project description. It showcases the work done, the technologies used, 
+              and the impact it had. Stay tuned for more details!
+            </p>
+            <a href="#" class="inline-block text-primary hover:text-primary/80 transition-colors duration-300">
+              View Project →
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+          <img src="images/projectDefault.jpeg" alt="Project 3" class="w-full h-48 object-cover">
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-white">Project 3</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">
+              This is a default project description. It showcases the work done, the technologies used, 
+              and the impact it had. Stay tuned for more details!
+            </p>
+            <a href="#" class="inline-block text-primary hover:text-primary/80 transition-colors duration-300">
+              View Project →
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="services">
-    <h2>Services</h2>
-    <p>Here are some of the services I offer...</p>
-    <ul>
-      <li>Web Development</li>
-      <li>Web Design</li>
-      <li>SEO</li>
-    </ul>
+  <!-- Work Section -->
+  <section id="work" class="min-h-screen py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-white">Experience</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Here is my work experience...
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6 mb-6">
+          <h3 class="text-2xl font-bold mb-2 text-gray-800 dark:text-white">Job Title</h3>
+          <p class="text-gray-600 dark:text-gray-400">Job description...</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Feel free to reach out to me!</p>
+  <!-- Services Section -->
+  <section id="services" class="min-h-screen py-16 bg-white dark:bg-gray-900">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-white">Services</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Here are some of the services I offer...
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+          <div class="text-4xl mb-4">💻</div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-white">Web Development</h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Custom web applications built with modern technologies and best practices.
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+          <div class="text-4xl mb-4">🎨</div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-white">Web Design</h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Beautiful and responsive designs that enhance user experience.
+          </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+          <div class="text-4xl mb-4">🔍</div>
+          <h3 class="text-xl font-bold mb-2 text-gray-800 dark:text-white">SEO</h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Optimize your website for better visibility and ranking.
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 
+  <!-- Contact Section -->
+  <section id="contact" class="min-h-screen py-16 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-white">Contact</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          Feel free to reach out to me!
+        </p>
+      </div>
+
+      <div class="max-w-2xl mx-auto">
+        <form class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-8">
+          <div class="mb-6">
+            <label for="name" class="block text-gray-700 dark:text-gray-300 mb-2">Name</label>
+            <input type="text" id="name" name="name" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent">
+          </div>
+          <div class="mb-6">
+            <label for="email" class="block text-gray-700 dark:text-gray-300 mb-2">Email</label>
+            <input type="email" id="email" name="email" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent">
+          </div>
+          <div class="mb-6">
+            <label for="message" class="block text-gray-700 dark:text-gray-300 mb-2">Message</label>
+            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="/js/themes.js"></script>
-  <script src="/js/nav.js"></script>
-  <script src="/js/about.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Social media dropdown toggle
+    const socialBtn = document.getElementById('social-dropdown-btn');
+    const socialDropdown = document.getElementById('social-dropdown');
+    const mobileSocialBtn = document.getElementById('mobile-social-btn');
+    const mobileSocialDropdown = document.getElementById('mobile-social-dropdown');
+
+    socialBtn.addEventListener('click', () => {
+      socialDropdown.classList.toggle('hidden');
+    });
+
+    mobileSocialBtn.addEventListener('click', () => {
+      mobileSocialDropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!socialBtn.contains(e.target) && !socialDropdown.contains(e.target)) {
+        socialDropdown.classList.add('hidden');
+      }
+      if (!mobileSocialBtn.contains(e.target) && !mobileSocialDropdown.contains(e.target)) {
+        mobileSocialDropdown.classList.add('hidden');
+      }
+    });
+  </script>
 </body>
 </html>
